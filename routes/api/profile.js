@@ -292,13 +292,10 @@ router.delete('/user/:user_id', auth, async (req, res) => {
 // @access  Public
 router.get('/github/:username', async (req, res) => {
   try {
-    try {
-    const uri = encodeURI(
-      `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
-    );
+    const uri = encodeURI(`https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`);
     const headers = {
       'user-agent': 'node.js',
-      Authorization: `token ${config.get('githubToken')}`
+      Authorization: `token ${config.get('githubToken')}`,
     };
 
     const gitHubResponse = await axios.get(uri, { headers });
@@ -307,6 +304,6 @@ router.get('/github/:username', async (req, res) => {
     console.error(err.message);
     return res.status(404).json({ msg: 'No Github profile found' });
   }
-})
+});
 
 module.exports = router;
