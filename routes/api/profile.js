@@ -56,13 +56,13 @@ router.get('/user/:user_id', async (req, res) => {
       return res.status(404).json({ msg: 'There is no profile for this user.' });
     }
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ msg: 'There is no profile for this user.' });
     } else {
       console.error(err.message);
-      res.status(500).send('Server error.');
+      return res.status(500).send('Server error.');
     }
   }
 });
