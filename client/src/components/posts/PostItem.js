@@ -26,7 +26,7 @@ const PostItem = ({ post: { _id, user, name, avatar, text, date, likes, comments
         <button type='button' className='btn btn-light' onClick={() => removeLike(_id)}>
           <i className='fas fa-thumbs-down'></i>
         </button>
-        <Link to={`/post/&{_id}`} className='btn btn-primary'>
+        <Link to={`/post/${_id}`} className='btn btn-primary'>
           Discussion{comments.length > 0 && <span className='comment-count'> {comments.length}</span>}
         </Link>
         {!auth.loading && user === auth.user._id && (

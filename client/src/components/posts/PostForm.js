@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import { addPost } from '../../actions/post';
 
 const PostForm = ({ addPost }) => {
-  const [formData, setFormData] = useState('');
+  const [text, setText] = useState('');
 
   const handleChange = (e) => {
-    setFormData(e.target.value);
+    setText(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost(formData);
-    setFormData('');
+    addPost(text);
+    setText('');
   };
 
   return (
@@ -22,7 +22,7 @@ const PostForm = ({ addPost }) => {
         <h3>Say Something...</h3>
       </div>
       <form className='form my-1' onSubmit={(e) => handleSubmit(e)}>
-        <textarea name='text' cols='30' rows='5' placeholder='Create a post' value={formData} onChange={(e) => handleChange(e)} required></textarea>
+        <textarea name='text' cols='30' rows='5' placeholder='Create a post' value={text} onChange={(e) => handleChange(e)} required></textarea>
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
       </form>
     </div>
