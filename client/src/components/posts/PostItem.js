@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { deletePost } from '../../actions/post';
 import { connect } from 'react-redux';
-import { addLike, removeLike } from '../../actions/post';
+import { deletePost, addLike, removeLike } from '../../actions/post';
 
 const PostItem = ({ post: { _id, user, name, avatar, text, date, likes, comments }, auth, deletePost, addLike, removeLike }) => {
   return (
@@ -44,6 +43,8 @@ PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   deletePost: PropTypes.func.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
