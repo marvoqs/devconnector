@@ -1,5 +1,4 @@
 import React from 'react';
-import { initParams } from 'request';
 import PropTypes from 'prop-types';
 
 const ProfileAbout = ({
