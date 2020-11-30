@@ -38,7 +38,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
       instagram: loading || !profile.social.instagram ? '' : profile.social.instagram,
     });
-  }, [loading, getCurrentProfile]);
+  }, [loading, getCurrentProfile, profile]);
 
   const { company, website, location, status, skills, githubusername, bio, twitter, facebook, linkedin, youtube, instagram } = formData;
 
